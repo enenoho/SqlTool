@@ -10,31 +10,31 @@ body {
         sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #c5cffc 0%, #d8c8ec 100%);
     min-height: 100vh;
 }
 
 .app-container {
     max-width: 900px;
     margin: 0 auto;
-    padding: 60px 20px;
+    padding: 24px 20px;
 }
 
 h1 {
     text-align: center;
     color: white;
-    margin-bottom: 30px;
-    font-size: 28px;
+    margin-bottom: 20px;
+    font-size: 22px;
     font-weight: 600;
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .input-section {
     background: white;
-    padding: 28px;
+    padding: 16px;
     border-radius: 12px;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
-    margin-bottom: 20px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    margin-bottom: 10px;
 }
 
 .label-row {
@@ -47,6 +47,7 @@ h1 {
 label {
     font-weight: 500;
     color: #333;
+    font-size: 13px;
 }
 
 textarea {
@@ -104,17 +105,17 @@ textarea:focus {
 
 .options-section {
     display: flex;
-    gap: 24px;
-    margin: 20px 0;
+    gap: 12px;
+    margin: 10px 0;
     flex-wrap: wrap;
 }
 
 .quote-option {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 8px;
     cursor: pointer;
-    padding: 10px 16px;
+    padding: 7px 12px;
     background-color: #f8f9fa;
     border-radius: 8px;
     transition: all 0.2s ease;
@@ -125,8 +126,8 @@ textarea:focus {
 }
 
 .quote-option input[type="radio"] {
-    width: 18px;
-    height: 18px;
+    width: 15px;
+    height: 15px;
     accent-color: #646cff;
 }
 
@@ -135,15 +136,16 @@ textarea:focus {
     cursor: pointer;
     font-weight: 400;
     color: #444;
+    font-size: 13px;
 }
 
 .process-btn {
     background: linear-gradient(135deg, #646cff 0%, #535bf2 100%);
     color: white;
     border: none;
-    padding: 14px 32px;
+    padding: 10px 28px;
     border-radius: 8px;
-    font-size: 15px;
+    font-size: 13px;
     font-weight: 500;
     cursor: pointer;
     transition: all 0.2s ease;
@@ -162,9 +164,9 @@ textarea:focus {
 
 .output-section {
     background: white;
-    padding: 28px;
+    padding: 16px;
     border-radius: 12px;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
 }
 
 .output-text {
