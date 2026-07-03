@@ -75,34 +75,63 @@ textarea:focus {
     position: relative;
 }
 
-.copy-btn {
+.count-badge {
     position: absolute;
-    right: 8px;
+    font-size: 12px;
+    color: #555;
+    background-color: rgba(100, 108, 255, 0.1);
+    padding: 2px 8px;
+    border-radius: 4px;
+    pointer-events: none;
+    font-family: 'Consolas', 'Monaco', monospace;
+    border: 1px solid rgba(100, 108, 255, 0.2);
+}
+
+#inputCount {
+    right: 28px;
     top: 8px;
-    width: 28px;
-    height: 28px;
-    background-color: #f0f0f0;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+}
+
+#outputCount {
+    right: 28px;
+    top: 8px;
+}
+
+.output-header {
     display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 8px;
+}
+
+.copy-btn {
+    background: linear-gradient(135deg, #67c23a 0%, #5ab534 100%);
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    display: inline-flex;
     align-items: center;
     justify-content: center;
     transition: all 0.2s ease;
+    box-shadow: 0 4px 12px rgba(103, 194, 58, 0.4);
+    flex-shrink: 0;
 }
 
 .copy-btn:hover {
-    background-color: #646cff;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 16px rgba(103, 194, 58, 0.5);
     color: white;
 }
 
-.copy-btn svg {
-    width: 13px;
-    height: 13px;
+.copy-btn:active {
+    transform: translateY(0);
 }
 
-.copy-btn:hover svg path {
-    stroke: white;
+.copy-btn svg {
+    width: 16px;
+    height: 16px;
 }
 
 .action-row {
@@ -144,7 +173,7 @@ textarea:focus {
 .quote-option label {
     margin-bottom: 0;
     cursor: pointer;
-    font-weight: 400;
+    font-weight: 500;
     color: #444;
     font-size: 12px;
 }
@@ -190,7 +219,7 @@ textarea:focus {
 
 .toast {
     position: fixed;
-    bottom: 30px;
+    top: 30px;
     left: 50%;
     transform: translateX(-50%);
     background-color: #333;

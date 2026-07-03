@@ -5,6 +5,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const copyInputBtn = document.getElementById('copyInputBtn');
     const copyOutputBtn = document.getElementById('copyOutputBtn');
     const toast = document.getElementById('toast');
+    const inputCount = document.getElementById('inputCount');
+    const outputCount = document.getElementById('outputCount');
 
     function getQuoteType() {
         const radio = document.querySelector('input[name="quoteType"]:checked');
@@ -33,11 +35,25 @@ document.addEventListener('DOMContentLoaded', function() {
         return quote + trimmed + quote;
     }
 
+    function countLines(text) {
+        if (!text.trim()) return 0;
+        return text.split('\n').filter(line => line.trim() !== '').length;
+    }
+
+    function updateInputCount() {
+        inputCount.textContent = '行数: ' + countLines(inputText.value);
+    }
+
+    function updateOutputCount() {
+        outputCount.textContent = '行数: ' + countLines(outputText.value);
+    }
+
     function handleProcess() {
         const input = inputText.value;
         
         if (!input.trim()) {
             outputText.value = '';
+            updateOutputCount();
             return;
         }
 
@@ -52,6 +68,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }).join('\n');
         
         outputText.value = result;
+        updateOutputCount();
     }
 
     function showToast(message) {
@@ -91,4 +108,5 @@ document.addEventListener('DOMContentLoaded', function() {
     processBtn.addEventListener('click', handleProcess);
     copyInputBtn.addEventListener('click', handleCopyInput);
     copyOutputBtn.addEventListener('click', handleCopyOutput);
+    inputText.addEventListener('input', updateInputCount);
 });
