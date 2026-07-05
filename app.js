@@ -8,6 +8,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const inputCount = document.getElementById('inputCount');
     const outputCount = document.getElementById('outputCount');
     const copyOutputInlineBtn = document.getElementById('copyOutputInlineBtn');
+    const layoutToggleBtn = document.getElementById('layoutToggleBtn');
+    const sectionsContainer = document.querySelector('.sections-container');
 
     function getQuoteType() {
         const radio = document.querySelector('input[name="quoteType"]:checked');
@@ -142,6 +144,10 @@ document.addEventListener('DOMContentLoaded', function() {
     copyOutputBtn.addEventListener('click', handleCopyOutput);
     copyOutputInlineBtn.addEventListener('click', handleCopyOutputInline);
     inputText.addEventListener('input', updateInputCount);
+
+    layoutToggleBtn.addEventListener('click', function() {
+        sectionsContainer.classList.toggle('horizontal');
+    });
 
     const bracketRadios = document.querySelectorAll('input[name="bracketType"]');
     bracketRadios.forEach(radio => {

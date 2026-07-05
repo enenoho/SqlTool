@@ -17,18 +17,157 @@ body {
 }
 
 .app-container {
-    max-width: 900px;
+    max-width: 1200px;
     margin: 0 auto;
     padding: 24px 20px;
 }
 
+.header-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    gap: 12px;
+}
+
+.layout-toggle-btn {
+    background: rgba(255, 255, 255, 0.8);
+    color: #646cff;
+    border: none;
+    padding: 8px;
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    flex-shrink: 0;
+}
+
+.layout-toggle-btn:hover {
+    background: white;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.layout-toggle-btn svg {
+    width: 20px;
+    height: 20px;
+}
+
 h1 {
+    flex: 1;
     text-align: center;
     color: white;
-    margin-bottom: 20px;
+    margin: 0;
     font-size: 22px;
     font-weight: 600;
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.sections-container {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.sections-container.horizontal {
+    flex-direction: row;
+    gap: 16px;
+    height: calc(100vh - 120px);
+}
+
+.sections-container.horizontal .input-section,
+.sections-container.horizontal .output-section {
+    flex: 1;
+    margin-bottom: 0;
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+}
+
+.sections-container.horizontal .input-section {
+    flex-direction: row;
+}
+
+.sections-container.horizontal .input-section .textarea-wrapper {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.sections-container.horizontal .input-section .textarea-wrapper textarea {
+    flex: 1;
+    height: auto;
+    min-height: 100px;
+}
+
+.sections-container.horizontal .input-section .action-row,
+.sections-container.horizontal .output-section .output-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    flex-shrink: 0;
+    width: 96px;
+}
+
+.sections-container.horizontal .input-section .action-row {
+    margin: 0 0 0 12px;
+}
+
+.sections-container.horizontal .output-section .output-header {
+    margin: 0 12px 0 0;
+}
+
+.sections-container.horizontal .input-section .action-row .process-btn,
+.sections-container.horizontal .input-section .action-row .copy-btn,
+.sections-container.horizontal .output-section .output-header .copy-btn {
+    width: 96px;
+    padding: 8px 12px;
+    box-sizing: border-box;
+}
+
+.sections-container.horizontal .input-section .action-row .button-group {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.sections-container.horizontal .output-section .output-header .button-group {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.sections-container.horizontal .input-section .action-row .quote-option,
+.sections-container.horizontal .output-section .output-header .bracket-option {
+    width: 96px;
+    padding: 8px 12px;
+    box-sizing: border-box;
+}
+
+.sections-container.horizontal .input-section .action-row .options-section,
+.sections-container.horizontal .output-section .output-header .bracket-options {
+    flex-direction: column;
+    gap: 8px;
+    padding: 0;
+    width: 100%;
+}
+
+.sections-container.horizontal .output-section {
+    flex-direction: row;
+}
+
+.sections-container.horizontal .output-section .textarea-wrapper {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.sections-container.horizontal .output-section .textarea-wrapper textarea {
+    flex: 1;
+    height: auto;
+    min-height: 100px;
 }
 
 .input-section {
@@ -63,6 +202,10 @@ textarea {
     font-family: 'Consolas', 'Monaco', monospace;
     transition: all 0.2s ease;
     line-height: 1.5;
+}
+
+.output-section .textarea-wrapper textarea {
+    height: 300px;
 }
 
 textarea:focus {
@@ -100,7 +243,7 @@ textarea:focus {
 .output-header {
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 12px;
     margin-bottom: 8px;
     flex-wrap: wrap;
 }
@@ -117,13 +260,13 @@ textarea:focus {
     gap: 6px;
     cursor: pointer;
     padding: 4px 8px;
-    background-color: #f8f9fa;
+    background-color: #e9ecef;
     border-radius: 6px;
     transition: all 0.2s ease;
 }
 
 .bracket-option:hover {
-    background-color: #e9ecef;
+    background-color: #dee2e6;
 }
 
 .bracket-option input[type="radio"] {
@@ -144,7 +287,7 @@ textarea:focus {
     background: linear-gradient(135deg, #67c23a 0%, #5ab534 100%);
     color: white;
     border: none;
-    padding: 8px 12px;
+    padding: 6px 16px;
     border-radius: 6px;
     cursor: pointer;
     display: inline-flex;
@@ -153,6 +296,10 @@ textarea:focus {
     transition: all 0.2s ease;
     box-shadow: 0 4px 12px rgba(103, 194, 58, 0.4);
     flex-shrink: 0;
+    font-size: 12px;
+    font-weight: 500;
+    width: 82px;
+    height: 28px;
 }
 
 .copy-btn:hover {
@@ -172,17 +319,24 @@ textarea:focus {
 
 .copy-btn .strikethrough-text {
     text-decoration: line-through;
-    font-size: 12px;
+    font-size: 14px;
     margin-left: 4px;
     font-family: 'Consolas', 'Monaco', monospace;
+    font-weight: bold;
 }
 
 .action-row {
     display: flex;
     align-items: center;
-    gap: 14px;
-    margin: 10px 0;
+    gap: 12px;
+    margin: 8px 0 4px 0;
     flex-wrap: wrap;
+}
+
+.button-group {
+    display: flex;
+    gap: 12px;
+    align-items: center;
 }
 
 .options-section {
@@ -198,13 +352,13 @@ textarea:focus {
     gap: 6px;
     cursor: pointer;
     padding: 4px 8px;
-    background-color: #f8f9fa;
+    background-color: #e9ecef;
     border-radius: 6px;
     transition: all 0.2s ease;
 }
 
 .quote-option:hover {
-    background-color: #e9ecef;
+    background-color: #dee2e6;
 }
 
 .quote-option input[type="radio"] {
@@ -225,14 +379,15 @@ textarea:focus {
     background: linear-gradient(135deg, #646cff 0%, #535bf2 100%);
     color: white;
     border: none;
-    padding: 8px 24px;
+    padding: 6px 16px;
     border-radius: 6px;
     font-size: 12px;
     font-weight: 500;
     cursor: pointer;
     transition: all 0.2s ease;
     box-shadow: 0 4px 12px rgba(100, 108, 255, 0.4);
-    width: auto;
+    width: 82px;
+    height: 28px;
 }
 
 .process-btn:hover {
@@ -246,7 +401,7 @@ textarea:focus {
 
 .output-section {
     background: white;
-    padding: 16px;
+    padding: 12px 16px 16px 16px;
     border-radius: 12px;
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
 }
