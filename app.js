@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const inputCount = document.getElementById('inputCount');
     const outputCount = document.getElementById('outputCount');
     const copyOutputInlineBtn = document.getElementById('copyOutputInlineBtn');
+    const clearInputBtn = document.getElementById('clearInputBtn');
     const layoutToggleBtn = document.getElementById('layoutToggleBtn');
     const sectionsContainer = document.querySelector('.sections-container');
 
@@ -100,6 +101,16 @@ document.addEventListener('DOMContentLoaded', function() {
         copyToClipboard(inputText.value, '输入内容已复制');
     }
 
+    function handleClearInput() {
+        if (!inputText.value.trim()) {
+            showToast('输入框已为空');
+            return;
+        }
+        inputText.value = '';
+        updateInputCount();
+        showToast('输入已清除');
+    }
+
     function handleCopyOutput() {
         if (!outputText.value.trim()) {
             showToast('结果为空');
@@ -141,6 +152,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     processBtn.addEventListener('click', handleProcess);
     copyInputBtn.addEventListener('click', handleCopyInput);
+    clearInputBtn.addEventListener('click', handleClearInput);
     copyOutputBtn.addEventListener('click', handleCopyOutput);
     copyOutputInlineBtn.addEventListener('click', handleCopyOutputInline);
     inputText.addEventListener('input', updateInputCount);

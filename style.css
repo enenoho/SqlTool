@@ -121,6 +121,7 @@ h1 {
 
 .sections-container.horizontal .input-section .action-row .process-btn,
 .sections-container.horizontal .input-section .action-row .copy-btn,
+.sections-container.horizontal .input-section .action-row .clear-btn,
 .sections-container.horizontal .output-section .output-header .copy-btn {
     width: 96px;
     padding: 8px 12px;
@@ -323,6 +324,38 @@ textarea:focus {
     margin-left: 4px;
     font-family: 'Consolas', 'Monaco', monospace;
     font-weight: bold;
+}
+
+.clear-btn {
+    background: linear-gradient(135deg, #f56c6c 0%, #e6473d 100%);
+    color: white;
+    border: none;
+    padding: 6px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 12px rgba(245, 108, 108, 0.4);
+    flex-shrink: 0;
+    width: 82px;
+    height: 28px;
+}
+
+.clear-btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 16px rgba(245, 108, 108, 0.5);
+    color: white;
+}
+
+.clear-btn:active {
+    transform: translateY(0);
+}
+
+.clear-btn svg {
+    width: 16px;
+    height: 16px;
 }
 
 .action-row {
